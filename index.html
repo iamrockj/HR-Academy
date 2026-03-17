@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HR Recruiting Academy — Birkenstock</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────
+   BIRKENSTOCK DESIGN SYSTEM
+   Alle Fakten aus: SEC FY2024 Filing (birk-ex99_1.htm),
+   Birkenstock Group Pressemitteilungen,
+   Manufacturing Dive (März 2024), Wikipedia
+───────────────────────────────────────── */
+:root{
+  --ink:      #0A0A08;
+  --ink-mid:  #2E2E2A;
+  --ink-soft: #5C5C56;
+  --ink-muted:#9C9C94;
+  --parch:    #F5EFE3;
+  --parch-mid:#EBE4D6;
+  --parch-drk:#D4C9B4;
+  --stone:    #C9B99A;
+  --stone-drk:#8A7558;
+  --dusk:     #1C2333;
+  --dusk-mid: #2B3240;
+  --warm:     #6B5C44;
+  --cream:    #FAFAF5;
+  --white:    #FFFFFF;
+  --red:      #8B2E22;
+  --red-pale: #F5ECEA;
+  --sage:     #3A5C46;
+  --sage-pale:#E8EFEA;
+  --gold:     #C9A96E;
+  --rule:     rgba(10,10,8,0.08);
+  --rule-md:  rgba(10,10,8,0.14);
+  --sh:       0 2px 24px rgba(10,10,8,0.06);
+  --sh-lg:    0 10px 48px rgba(10,10,8,0.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;-webkit-font-smoothing:antialiased}
+body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;min-height:100vh;overflow-x:hidden}
+
+/* SIDEBAR */
+.sidebar{position:fixed;top:0;left:0;width:256px;height:100vh;background:var(--dusk);display:flex;flex-direction:column;z-index:100;overflow-y:auto;border-right:1px solid rgba(255,255,255,0.06)}
+.sidebar::-webkit-scrollbar{width:2px}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.12)}
+.s-top{padding:32px 28px 24px;border-bottom:1px solid rgba(255,255,255,0.07)}
+.s-ey{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:600;letter-spacing:0.26em;text-transform:uppercase;color:var(--stone);margin-bottom:14px}
+.s-lk{display:flex;align-items:center;gap:12px}
+.s-mono{width:38px;height:38px;border:1px solid rgba(201,185,154,0.4);font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;color:var(--stone);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.s-nm{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:rgba(255,255,255,0.88);line-height:1}
+.s-sb{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:400;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.32);margin-top:3px}
+.s-prog{padding:14px 28px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.sp-l{font-size:9px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:8px}
+.sp-t{height:1px;background:rgba(255,255,255,0.10);margin-bottom:7px}
+.sp-f{height:100%;background:var(--stone);transition:width 0.7s cubic-bezier(.4,0,.2,1);width:0%}
+.sp-x{font-size:10px;color:var(--stone);font-weight:500;letter-spacing:0.04em}
+.ng{font-family:'Barlow Condensed',sans-serif;font-size:8px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.18);padding:18px 28px 7px}
+.ni{display:flex;align-items:center;gap:10px;padding:9px 28px;cursor:pointer;border-left:1px solid transparent;transition:all 0.12s}
+.ni:hover{background:rgba(255,255,255,0.03);border-left-color:rgba(201,185,154,0.2)}
+.ni.active{background:rgba(201,185,154,0.08);border-left-color:var(--stone)}
+.ni.done .nd{background:var(--sage)}
+.nd{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.15);flex-shrink:0;transition:background 0.2s}
+.ni.active .nd{background:var(--stone)}
+.nl{font-size:12px;font-weight:400;color:rgba(255,255,255,0.48);flex:1;line-height:1.3;transition:color 0.12s;letter-spacing:0.01em}
+.ni.active .nl{color:rgba(255,255,255,0.88);font-weight:500}
+.ni.done .nl{color:rgba(255,255,255,0.28)}
+.nw{font-family:'Barlow Condensed',sans-serif;font-size:8px;font-weight:600;letter-spacing:0.06em;color:rgba(255,255,255,0.18)}
+
+/* MAIN */
+.main{margin-left:256px;min-height:100vh}
+.topbar{height:50px;background:var(--white);border-bottom:1px solid var(--rule);display:flex;align-items:center;padding:0 52px;justify-content:space-between;position:sticky;top:0;z-index:50}
+.tc{display:flex;align-items:center;gap:10px;font-size:11px;color:var(--ink-muted);letter-spacing:0.04em}
+.tc::before{content:'';width:18px;height:1px;background:var(--rule-md)}
+.tc span{color:var(--ink);font-weight:500;letter-spacing:0.02em}
+.tw{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:4px 12px;background:var(--parch);color:var(--stone-drk);border:1px solid var(--parch-drk)}
+.content{padding:52px 52px 100px;max-width:880px}
+.page{display:none}.page.active{display:block}
+
+/* HERO */
+.hero{width:100%;height:300px;overflow:hidden;margin-bottom:40px;position:relative}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;filter:brightness(0.75) contrast(1.05)}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(to right,rgba(28,35,51,0.82) 0%,rgba(28,35,51,0.22) 55%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:36px 44px}
+.hero-ey{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--stone);margin-bottom:8px}
+.hero-ti{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:white;line-height:1.15;letter-spacing:-0.01em}
+
+/* UNIT HEADER */
+.u-rl{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.u-ln{width:32px;height:1px;background:var(--stone)}
+.u-ey{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.20em;text-transform:uppercase;color:var(--stone-drk)}
+.u-ti{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:var(--ink);line-height:1.1;margin-bottom:12px;letter-spacing:-0.02em}
+.u-mt{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:40px;padding-bottom:28px;border-bottom:1px solid var(--rule)}
+.u-mi{font-size:11px;color:var(--ink-muted);letter-spacing:0.04em}
+
+/* TABS */
+.tabs{display:flex;border-bottom:1px solid var(--rule);margin-bottom:32px}
+.tab{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:11px 22px;color:var(--ink-muted);cursor:pointer;border-bottom:1.5px solid transparent;margin-bottom:-1px;transition:all 0.12s}
+.tab:hover{color:var(--ink)}
+.tab.active{color:var(--ink);border-bottom-color:var(--ink)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+
+/* CARDS */
+.card{background:var(--white);border:1px solid var(--rule);padding:32px 36px;margin-bottom:16px;box-shadow:var(--sh)}
+.ch{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.ci{width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.ci.p{background:var(--parch)}.ci.d{background:rgba(28,35,51,0.07)}.ci.s{background:var(--sage-pale)}.ci.r{background:var(--red-pale)}
+.ct{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink)}
+.cb{font-size:14px;line-height:1.78;color:var(--ink-soft)}
+
+/* GRID */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:20px;border:1px solid var(--rule);overflow:hidden}
+.gi{padding:18px 22px;background:var(--cream)}
+.gi:nth-child(odd){background:var(--parch)}
+.gl{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--stone-drk);margin-bottom:6px}
+.gt{font-size:13px;line-height:1.65;color:var(--ink-mid)}
+
+/* FACT BADGE – Quellennachweis */
+.src{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:8px;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:var(--stone-drk);background:var(--parch-drk);padding:1px 6px;margin-left:4px;vertical-align:middle}
+
+/* NOTE BOXES */
+.nb{border-left:2px solid var(--parch-drk);background:var(--parch);padding:16px 22px;margin:10px 0}
+.nb.bad{border-left-color:var(--red);background:var(--red-pale)}
+.nb.good{border-left-color:var(--sage);background:var(--sage-pale)}
+.nb.info{border-left-color:var(--dusk);background:rgba(28,35,51,0.04)}
+.nbl{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:7px}
+.nb.bad .nbl{color:var(--red)}.nb.good .nbl{color:var(--sage)}.nb.info .nbl{color:var(--dusk-mid)}
+.nbt{font-size:13px;line-height:1.68;color:var(--ink-mid)}
+
+/* TEMPLATE SYSTEM */
+.tw2{margin-top:22px;border:1px solid var(--rule);overflow:hidden}
+.tb{background:var(--dusk);padding:14px 22px;display:flex;align-items:center;justify-content:space-between}
+.tbl{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.65)}
+.tcp{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;background:transparent;color:var(--stone);border:1px solid rgba(201,185,154,0.4);padding:4px 14px;cursor:pointer;transition:all 0.12s}
+.tcp:hover{background:var(--stone);color:var(--dusk)}
+.ti{background:var(--parch)}
+.ts{padding:20px 26px;border-bottom:1px solid var(--parch-drk)}
+.ts:last-child{border-bottom:none}
+.tsl{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--stone-drk);margin-bottom:10px;padding-bottom:7px;border-bottom:1px solid var(--parch-drk)}
+.tbody{font-family:'Barlow',sans-serif;font-size:13px;line-height:2;color:var(--ink-mid);white-space:pre-wrap;word-break:break-word}
+.ph{display:inline-block;background:var(--dusk);color:rgba(255,255,255,0.85);padding:1px 7px;font-size:9px;font-weight:700;letter-spacing:0.08em;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;vertical-align:middle}
+.ph.opt{background:var(--warm);color:rgba(255,255,255,0.85)}
+
+/* STAR GRID */
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:20px;border:1px solid var(--rule);overflow:hidden}
+.sc{padding:22px 24px}
+.sc:nth-child(1){background:#FAF5EB}
+.sc:nth-child(2){background:rgba(28,35,51,0.05)}
+.sc:nth-child(3){background:var(--red-pale)}
+.sc:nth-child(4){background:var(--sage-pale)}
+.sl{font-family:'Cormorant Garamond',serif;font-size:40px;line-height:1;font-weight:300;color:var(--ink);opacity:0.15;margin-bottom:2px}
+.sn{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
+.sd{font-size:13px;line-height:1.58;color:var(--ink-mid)}
+
+/* TABLE */
+.dt{width:100%;border-collapse:collapse;font-size:13px;margin-top:16px}
+.dt thead tr{background:var(--parch);border-bottom:1.5px solid var(--parch-drk)}
+.dt th{text-align:left;padding:10px 14px;font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--stone-drk)}
+.dt td{padding:10px 14px;color:var(--ink-mid)}
+.dt tbody tr{border-bottom:1px solid var(--rule)}
+.dt tbody tr:nth-child(even){background:var(--cream)}
+.badge{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:2px 8px}
+.bko{background:var(--red-pale);color:var(--red)}
+.bmu{background:#FBF3E0;color:#7A5510}
+.bpl{background:var(--sage-pale);color:var(--sage)}
+
+/* QUIZ */
+.qw{background:var(--dusk);border:1px solid rgba(255,255,255,0.06);padding:36px;margin-bottom:16px}
+.qh{display:flex;align-items:center;gap:12px;margin-bottom:28px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,0.07)}
+.qb{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.20em;text-transform:uppercase;background:var(--stone);color:var(--dusk);padding:4px 12px}
+.qt{font-size:12px;font-weight:400;color:rgba(255,255,255,0.5);letter-spacing:0.04em}
+.qbl{margin-bottom:26px}.qbl+.qbl{border-top:1px solid rgba(255,255,255,0.07);padding-top:26px}
+.qq{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;line-height:1.5;color:rgba(255,255,255,0.88);margin-bottom:16px;font-style:italic}
+.qo{display:flex;flex-direction:column;gap:8px}
+.qopt{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);padding:12px 18px;text-align:left;font-size:13px;color:rgba(255,255,255,0.65);cursor:pointer;transition:all 0.12s;font-family:'Barlow',sans-serif;line-height:1.4}
+.qopt:hover{background:rgba(201,185,154,0.12);border-color:var(--stone);color:rgba(255,255,255,0.9)}
+.qopt.correct{background:rgba(58,92,70,0.25);border-color:var(--sage);color:#88C4A0}
+.qopt.wrong{background:rgba(139,46,34,0.18);border-color:var(--red);color:#E49E96}
+.qopt.disabled{pointer-events:none;opacity:0.45}
+.qfb{margin-top:14px;padding:12px 18px;font-size:13px;line-height:1.55;display:none}
+.qfb.show{display:block}
+.qfb.good{background:rgba(58,92,70,0.18);color:#88C4A0;border-left:2px solid var(--sage)}
+.qfb.bad{background:rgba(139,46,34,0.14);color:#E49E96;border-left:2px solid var(--red)}
+
+/* CHECKLIST */
+.cll{list-style:none}
+.cli{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);cursor:pointer;transition:opacity 0.12s}
+.cli:last-child{border-bottom:none}
+.cli:hover{opacity:0.75}
+.clb{width:17px;height:17px;border:1px solid var(--parch-drk);flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;font-size:10px;transition:all 0.12s}
+.cli.checked .clb{background:var(--sage);border-color:var(--sage);color:white}
+.cli.checked .clt{text-decoration:line-through;color:var(--ink-muted)}
+.clt{font-size:13px;color:var(--ink-mid);line-height:1.55}
+
+/* DASHBOARD */
+.kr{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-bottom:36px;border:1px solid var(--rule);overflow:hidden}
+.kb{padding:32px 36px;background:var(--cream)}
+.kb:first-child{background:var(--dusk)}
+.kn{font-family:'Cormorant Garamond',serif;font-size:58px;line-height:1;font-weight:300;color:var(--ink);margin-bottom:6px}
+.kb:first-child .kn{color:white}
+.kb:first-child .kl{color:rgba(255,255,255,0.35)}
+.kl{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-muted)}
+.mr{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);cursor:pointer;transition:all 0.1s}
+.mr:last-child{border-bottom:none}
+.mr:hover{opacity:0.7}
+.md{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.sd{background:var(--sage)}.sp{background:var(--parch-drk)}
+.mn{flex:1;font-size:13px;color:var(--ink);line-height:1.4;letter-spacing:0.01em}
+.mw{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.08em;color:var(--ink-muted)}
+
+/* COMPLETE BTN */
+.cb2{width:100%;margin-top:28px;background:var(--dusk);color:rgba(255,255,255,0.75);border:none;padding:17px 28px;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:background 0.15s}
+.cb2:hover{background:var(--ink)}
+.cb2.done{background:var(--sage);color:white;cursor:default}
+
+/* SECTION TITLE */
+.stt{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.20em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:18px;display:flex;align-items:center;gap:14px}
+.stt::after{content:'';flex:1;height:1px;background:var(--rule)}
+
+/* WELCOME */
+.wb{background:var(--dusk);padding:40px 48px;margin-bottom:36px;position:relative;overflow:hidden}
+.wb::before{content:'1774';position:absolute;right:40px;top:50%;transform:translateY(-50%);font-family:'Cormorant Garamond',serif;font-size:120px;font-weight:300;color:rgba(255,255,255,0.04);line-height:1;pointer-events:none;user-select:none}
+.wb::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;background:linear-gradient(90deg,var(--stone) 0%,transparent 70%)}
+.wbt{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:var(--stone);margin-bottom:14px}
+.wbh{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:white;line-height:1.2;margin-bottom:8px;letter-spacing:-0.01em}
+.wbs{font-size:13px;color:rgba(255,255,255,0.42);line-height:1.6;font-weight:300}
+
+/* TOAST */
+.toast{position:fixed;bottom:36px;right:36px;background:var(--sage);color:white;padding:14px 24px;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;box-shadow:var(--sh-lg);transform:translateY(70px);opacity:0;transition:all 0.35s cubic-bezier(.22,1,.36,1);z-index:999}
+.toast.show{transform:translateY(0);opacity:1}
+
+/* PROSE */
+p{font-size:14px;line-height:1.8;color:var(--ink-soft);font-weight:300}
+ul,ol{padding-left:20px}
+li{font-size:13px;line-height:1.85;color:var(--ink-soft);font-weight:300}
+strong{color:var(--ink);font-weight:500}
+
+@media(max-width:980px){
+  .sidebar{display:none}.main{margin-left:0}
+  .content{padding:32px 24px 80px}
+  .g2,.sg,.kr{grid-template-columns:1fr}
+  .hero{height:220px}
+  .wb{padding:28px 24px}
+}
+</style>
+</head>
+<body>
+
+<nav class="sidebar">
+  <div class="s-top">
+    <div class="s-ey">Birkenstock Group · Seit 1774</div>
+    <div class="s-lk">
+      <div class="s-mono">B</div>
+      <div><div class="s-nm">HR Academy</div><div class="s-sb">International Recruiting</div></div>
+    </div>
+  </div>
+  <div class="s-prog">
+    <div class="sp-l">Fortschritt</div>
+    <div class="sp-t"><div class="sp-f" id="globalProgress"></div></div>
+    <div class="sp-x" id="globalProgressText">0 von 6 abgeschlossen</div>
+  </div>
+  <div class="ng">Navigation</div>
+  <div class="ni active" data-page="dashboard" onclick="go('dashboard',this)"><div class="nd"></div><div class="nl">Übersicht</div></div>
+  <div class="ng">Woche 1–2 · Fundament</div>
+  <div class="ni" data-page="unit1" onclick="go('unit1',this)"><div class="nd"></div><div class="nl">Stellenausschreibungen</div><div class="nw">W1</div></div>
+  <div class="ni" data-page="unit2" onclick="go('unit2',this)"><div class="nd"></div><div class="nl">CV-Screening</div><div class="nw">W2</div></div>
+  <div class="ng">Woche 3–4 · Interviews</div>
+  <div class="ni" data-page="unit3" onclick="go('unit3',this)"><div class="nd"></div><div class="nl">STAR-Interviews</div><div class="nw">W3</div></div>
+  <div class="ni" data-page="unit4" onclick="go('unit4',this)"><div class="nd"></div><div class="nl">Kandidaten-Kommunikation</div><div class="nw">W4</div></div>
+  <div class="ng">Woche 5–6 · Onboarding</div>
+  <div class="ni" data-page="unit5" onclick="go('unit5',this)"><div class="nd"></div><div class="nl">Onboarding gestalten</div><div class="nw">W5</div></div>
+  <div class="ng">Woche 7–8 · International</div>
+  <div class="ni" data-page="unit6" onclick="go('unit6',this)"><div class="nd"></div><div class="nl">International & DSGVO</div><div class="nw">W7</div></div>
+</nav>
+
+<div class="main">
+  <div class="topbar">
+    <div class="tc" id="breadcrumb">HR Academy <span>Übersicht</span></div>
+    <div class="tw" id="weekBadge">Dashboard</div>
+  </div>
+
+  <div class="content">
+
+    <!-- ═══ DASHBOARD ═══ -->
+    <div class="page active" id="page-dashboard">
+      <div class="hero" style="margin-bottom:32px">
+        <!-- Birkenstock Arizona – klassisches Produkt, earthtones, cork footbed -->
+        <img src="https://images.unsplash.com/photo-1603487742131-4160ec999306?w=1400&q=85&auto=format&fit=crop&crop=center" alt="Sandal craftsmanship">
+        <div class="hero-ov">
+          <div class="hero-ey">Birkenstock Group · HR International · Seit 1774</div>
+          <div class="hero-ti">Recruiting Academy<br>für Werkstudent:innen</div>
+        </div>
+      </div>
+      <div class="wb">
+        <div class="wbt">Seit 1774 · Linz am Rhein · NYSE: BIRK</div>
+        <div class="wbh">Willkommen in der Birkenstock HR Academy.</div>
+        <div class="wbs">Dein 8-Wochen-Lernplan für Recruiting bei Birkenstock International – praxisnah, auf deine täglichen Aufgaben zugeschnitten.</div>
+      </div>
+      <div class="kr">
+        <div class="kb"><div class="kn" id="doneCount">0</div><div class="kl">Einheiten abgeschlossen</div></div>
+        <div class="kb"><div class="kn">6</div><div class="kl">Lerneinheiten gesamt</div></div>
+      </div>
+      <div class="stt">Lernplan</div>
+      <div class="card" style="padding-top:20px;padding-bottom:20px">
+        <div class="mr" onclick="go('unit1',null)"><div class="md sp" id="status-unit1"></div><div class="mn">Einheit 1 — Stellenausschreibungen, die wirken</div><div class="mw">Woche 1 · 90 min</div></div>
+        <div class="mr" onclick="go('unit2',null)"><div class="md sp" id="status-unit2"></div><div class="mn">Einheit 2 — CV-Screening strukturiert angehen</div><div class="mw">Woche 2 · 60 min</div></div>
+        <div class="mr" onclick="go('unit3',null)"><div class="md sp" id="status-unit3"></div><div class="mn">Einheit 3 — Strukturierte Interviews (STAR)</div><div class="mw">Woche 3 · 90 min</div></div>
+        <div class="mr" onclick="go('unit4',null)"><div class="md sp" id="status-unit4"></div><div class="mn">Einheit 4 — Koordination & Kandidaten-Kommunikation</div><div class="mw">Woche 4 · 60 min</div></div>
+        <div class="mr" onclick="go('unit5',null)"><div class="md sp" id="status-unit5"></div><div class="mn">Einheit 5 — Effektives Onboarding gestalten</div><div class="mw">Woche 5 · 90 min</div></div>
+        <div class="mr" onclick="go('unit6',null)"><div class="md sp" id="status-unit6"></div><div class="mn">Einheit 6 — International Recruiting & DSGVO</div><div class="mw">Woche 7 · 90 min</div></div>
+      </div>
+      <div class="stt" style="margin-top:36px">Über diese Plattform</div>
+      <div class="card"><div class="cb"><p>Jede Einheit enthält <strong>Theorie</strong>, <strong>Praxis-Beispiele</strong> aus dem Birkenstock-Kontext und ein <strong>Quiz</strong>. Vorlagen-Tabs enthalten fertige Texte mit Kopieren-Funktion. Alle Fakten über Birkenstock stammen aus verifizierten Quellen: SEC-Filings, offiziellen Pressemitteilungen der Birkenstock Group und Geschäftsberichten.</p></div></div>
+    </div>
+
+    <!-- ═══ UNIT 1: STELLENANZEIGEN ═══ -->
+    <div class="page" id="page-unit1">
+      <!-- Cork footbed close-up – earthtone, handwerk -->
+      <div class="hero">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1400&q=85&auto=format&fit=crop&crop=center" alt="Birkenstock product">
+        <div class="hero-ov">
+          <div class="hero-ey">Einheit 1 · Woche 1</div>
+          <div class="hero-ti">Stellenausschreibungen,<br>die Kandidaten überzeugen</div>
+        </div>
+      </div>
+      <div class="u-rl"><div class="u-ln"></div><div class="u-ey">Woche 1 · Stellenausschreibungen</div></div>
+      <div class="u-ti">Jobanzeigen, die<br>Kandidaten überzeugen</div>
+      <div class="u-mt">
+        <div class="u-mi">— ca. 90 Minuten</div>
+        <div class="u-mi">— Theorie · Praxis · Quiz · 2 Vorlagen</div>
+      </div>
+      <div class="tabs">
+        <div class="tab active" onclick="sw(this,'u1-th')">Theorie</div>
+        <div class="tab" onclick="sw(this,'u1-pr')">Praxis</div>
+        <div class="tab" onclick="sw(this,'u1-qz')">Quiz</div>
+        <div class="tab" onclick="sw(this,'u1-tm')">Vorlagen</div>
+      </div>
+
+      <div class="tab-panel active" id="u1-th">
+        <div class="card">
+          <div class="ch"><div class="ci d">◈</div><div class="ct">EVP — Employer Value Proposition</div></div>
+          <div class="cb"><p>Die EVP beschreibt, warum jemand bei Birkenstock arbeiten sollte – und nicht woanders. Sie ist das zentrale Versprechen an potenzielle Mitarbeitende.</p></div>
+          <div class="g2">
+            <div class="gi">
+              <div class="gl">Marke &amp; Produkt</div>
+              <div class="gt">Shoemaking-Tradition nachweislich seit 1774. NYSE-notiert seit 11. Oktober 2023 (Ticker: BIRK). Umsatz FY2024: EUR 1,8 Mrd. <span class="src">SEC FY2024</span></div>
+            </div>
+            <div class="gi">
+              <div class="gl">Wachstum</div>
+              <div class="gt">20%+ Umsatzwachstum seit über einem Jahrzehnt. FY2024: +21% (reported), +22% (constant currency). APMA-Region: +42% <span class="src">SEC FY2024</span></div>
+            </div>
+            <div class="gi">
+              <div class="gl">Produktion &amp; Qualität</div>
+              <div class="gt">Sechs Fabriken in Deutschland (St. Katharinen, Görlitz, Bernstadt, Steinau, Pasewalk u.a.) und eine Komponentenfabrik in Portugal. >95% aller Produkte in Deutschland gefertigt. <span class="src">Manufacturing Dive 2024</span></div>
+            </div>
+            <div class="gi">
+              <div class="gl">Standort &amp; Mitarbeitende</div>
+              <div class="gt">Hauptsitz: Burg Ockenfels, Linz am Rhein. ~7.400 Mitarbeitende weltweit (Stand: 30. Sept. 2024). Sechs-Generationen-Familientradition. <span class="src">SEC Annual Report 2024 / MacroTrends</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ch"><div class="ci p">✦</div><div class="ct">AIDA-Prinzip für Stellenanzeigen</div></div>
+          <div class="cb"><p>Eine Stellenanzeige ist kein Aufgaben-Katalog – sie ist ein Verkaufsgespräch mit dem Kandidaten als Zielgruppe.</p></div>
+          <div class="g2" style="margin-top:18px">
+            <div class="gi"><div class="gl">A — Attention</div><div class="gt">Starker Einstieg. Nicht „Wir suchen..." sondern „Du gestaltest..." – direkte Ansprache weckt sofort Interesse.</div></div>
+            <div class="gi"><div class="gl">I — Interest</div><div class="gt">Was macht diese Rolle einzigartig? Warum jetzt, warum Birkenstock? Kontext und Impact benennen.</div></div>
+            <div class="gi"><div class="gl">D — Desire</div><div class="gt">Was bekommt der Kandidat? Benefits, Team, Entwicklung – konkret und messbar, nicht generisch.</div></div>
+            <div class="gi"><div class="gl">A — Action</div><div class="gt">Klarer Call-to-Action: Wie, bei wem, bis wann bewerben? Hürde so niedrig wie möglich.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="u1-pr">
+        <div class="card">
+          <div class="ch"><div class="ci d">◎</div><div class="ct">Vorher / Nachher</div></div>
+          <div class="nb bad"><div class="nbl">❌ Schlecht — Aufgabenliste ohne Markenstimme</div><div class="nbt">„Wir suchen eine:n HR Business Partner:in (m/w/d). Aufgaben: Beratung von Führungskräften, Durchführung von Recruiting, Koordination von Onboarding. Anforderungen: Studium BWL, 3 Jahre Erfahrung, MS Office."</div></div>
+          <div class="nb good"><div class="nbl">✅ Gut — Einladend, markenstark, konkret</div><div class="nbt">„Du willst HR gestalten – nicht nur verwalten? Als HR Business Partner:in bei Birkenstock bist du die Brücke zwischen ambitionierten Teams und echtem Wachstum. In einem internationalen Umfeld mit über 7.400 Kolleg:innen und EUR 1,8 Mrd. Umsatz berätst du Führungskräfte auf Augenhöhe. Was dich erwartet: viel Eigenverantwortung und das Gefühl, an einem der beständigsten Wachstumskurse der Branche mitzugestalten."</div></div>
+        </div>
+        <div class="card">
+          <div class="ch"><div class="ci d">📝</div><div class="ct">Übung</div></div>
+          <div class="cb">
+            <p>Schreib diesen generischen Satz nach dem AIDA-Prinzip um. Nutze dabei die verifizierten Birkenstock-Fakten.</p>
+            <div class="nb info" style="margin-top:14px"><div class="nbl">Ausgangssatz</div><div class="nbt">„Wir suchen eine engagierte Person für unser internationales HR-Team."</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="u1-qz">
+        <div class="qw">
+          <div class="qh"><div class="qb">Quiz</div><div class="qt">Stellenausschreibungen</div></div>
+          <div class="qbl">
+            <div class="qq">Was beschreibt die Employer Value Proposition (EVP) am besten?</div>
+            <div class="qo">
+              <button class="qopt" onclick="ans(this,false,'q1','Die EVP umfasst das Gesamtversprechen – Gehalt ist nur ein Teil davon.')">Das Gehaltspaket und die Benefits eines Unternehmens</button>
+              <button class="qopt" onclick="ans(this,true,'q1','Richtig! Die EVP ist das Gesamtversprechen – warum jemand bei euch arbeiten sollte, nicht nur was er bekommt.')">Das Gesamtversprechen: warum jemand für dieses Unternehmen arbeiten sollte</button>
+              <button class="qopt" onclick="ans(this,false,'q1','Falsch. Die EVP richtet sich an Kandidaten und Mitarbeitende, nicht an Kunden.')">Die Markenbotschaft gegenüber Kunden und Partnern</button>
+            </div>
+            <div class="qfb" id="feedback-q1"></div>
+          </div>
+          <div class="qbl">
+            <div class="qq">Welcher Einstiegssatz ist besser – und warum?</div>
+            <div class="qo">
+              <button class="qopt" onclick="ans(this,false,'q2','Listet nur Aufgaben auf – keine Einladung, kein Impact, keine Markenstimme.')">„Sie werden für die Bearbeitung von Bewerbungen und Koordination von Interviews zuständig sein."</button>
+              <button class="qopt" onclick="ans(this,true,'q2','Genau! Spricht direkt an, benennt Impact und weckt Interesse – ohne einen einzigen Aufgaben-Stichpunkt.')">„Du baust mit uns die Talentbasis auf, die Birkenstock für sein globales Wachstum braucht."</button>
+            </div>
+            <div class="qfb" id="feedback-q2"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="u1-tm">
+        <div class="card">
+          <div class="ch"><div class="ci d">◈</div><div class="ct">Vorlage 1 — Stellenanzeige Deutsch</div></div>
+          <div class="cb"><p>Vollständige Vorlage für eine deutschsprachige Ausschreibung. <span class="ph" style="font-size:9px">PLATZHALTER</span> ersetzen, <span class="ph opt" style="font-size:9px">BRAUN</span> = optional.</p></div>
+          <div class="tw2">
+            <div class="tb"><div class="tbl">Stellenanzeige · Deutsch</div><button class="tcp" onclick="cp('t1de')">Kopieren</button></div>
+            <div id="t1de" class="ti">
+              <div class="ts"><div class="tsl">Einstieg (Attention + Interest)</div>
+<div class="tbody">Du willst <ph class="ph">TÄTIGKEIT (z.B. "Recruiting gestalten")</ph> – nicht nur <ph class="ph">GEGENTEIL (z.B. "verwalten")</ph>?
+
+Als <ph class="ph">JOBTITEL</ph> bei Birkenstock bist du <ph class="ph">KERNROLLE IN EINEM SATZ (z.B. "die Brücke zwischen ambitionierten Teams und globalem Wachstum")</ph>.
+
+In einem internationalen Umfeld mit über 7.400 Kolleg:innen und Standorten in mehr als 100 Ländern übernimmst du Verantwortung, die wirklich zählt.</div></div>
+              <div class="ts"><div class="tsl">Aufgaben (Desire)</div>
+<div class="tbody"><strong>Das erwartet dich</strong>
+
+· Du <ph class="ph">AUFGABE 1 (aktives Verb, z.B. "betreust den End-to-End Recruiting-Prozess für...")</ph>
+· Du <ph class="ph">AUFGABE 2</ph>
+· Du arbeitest eng zusammen mit <ph class="ph">TEAMS / STAKEHOLDER</ph>
+· Du <ph class="ph opt">AUFGABE 3 (optional)</ph></div></div>
+              <div class="ts"><div class="tsl">Anforderungen</div>
+<div class="tbody"><strong>Was du mitbringst</strong>
+
+Muss:
+· <ph class="ph">KO-KRITERIUM 1 (z.B. "Studium BWL, HR oder vergleichbar, mind. im 4. Semester")</ph>
+· <ph class="ph">KO-KRITERIUM 2 (z.B. "Fließende Englischkenntnisse (B2+)")</ph>
+· <ph class="ph">MUST-KRITERIUM (z.B. "Erste HR-Erfahrung durch Praktikum oder Werkstudententätigkeit")</ph>
+
+Von Vorteil:
+· <ph class="ph opt">NICE-TO-HAVE 1 (z.B. "Kenntnisse in einem HRIS wie Workday oder SAP SuccessFactors")</ph>
+· <ph class="ph opt">NICE-TO-HAVE 2</ph></div></div>
+              <div class="ts"><div class="tsl">Was wir bieten</div>
+<div class="tbody"><strong>Was Birkenstock dir bietet</strong>
+
+· Internationales Team mit Kolleg:innen aus <ph class="ph">X LÄNDER</ph>
+· <ph class="ph">KONKRETER BENEFIT 1 (z.B. "Eigenverantwortliche Projekte vom ersten Tag")</ph>
+· <ph class="ph opt">KONKRETER BENEFIT 2</ph>
+· Standort: <ph class="ph">ORT (i.d.R. Linz am Rhein / Burg Ockenfels)</ph> · Einstieg: <ph class="ph">DATUM</ph> · Dauer: <ph class="ph">BEFRISTUNG</ph></div></div>
+              <div class="ts"><div class="tsl">Call to Action</div>
+<div class="tbody">Schick uns deinen Lebenslauf und ein kurzes Anschreiben direkt an <ph class="ph">E-MAIL</ph> oder bewirb dich über unser Jobportal.
+
+Bei Fragen wende dich jederzeit an <ph class="ph">DEIN NAME</ph> (HR International).</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="margin-top:20px">
+          <div class="ch"><div class="ci d">◈</div><div class="ct">Vorlage 2 — Job Posting English</div></div>
+          <div class="cb"><p>Complete template for international postings. All <span class="ph" style="font-size:9px">PLACEHOLDERS</span> to be replaced; <span class="ph opt" style="font-size:9px">BROWN</span> = optional.</p></div>
+          <div class="tw2">
+            <div class="tb"><div class="tbl">Job Posting · English</div><button class="tcp" onclick="cp('t1en')">Copy</button></div>
+            <div id="t1en" class="ti">
+              <div class="ts"><div class="tsl">Opening (Attention + Interest)</div>
+<div class="tbody">Ready to <ph class="ph">ACTION (e.g. "shape how Birkenstock builds its international team")</ph>?
+
+As <ph class="ph">JOB TITLE</ph> at Birkenstock, you will <ph class="ph">CORE ROLE IN ONE SENTENCE</ph>.
+
+With 7,400+ colleagues across 100+ countries and EUR 1.8B in revenue (FY2024), you'll have real ownership from day one at one of Germany's most consistent growth stories.</div></div>
+              <div class="ts"><div class="tsl">Responsibilities</div>
+<div class="tbody"><strong>What you'll do</strong>
+
+· <ph class="ph">RESPONSIBILITY 1 (use active verbs: "Own", "Build", "Lead", "Drive")</ph>
+· <ph class="ph">RESPONSIBILITY 2</ph>
+· Partner with <ph class="ph">TEAMS / STAKEHOLDERS</ph> to <ph class="ph">SHARED GOAL</ph>
+· <ph class="ph opt">RESPONSIBILITY 3 (optional)</ph></div></div>
+              <div class="ts"><div class="tsl">Requirements</div>
+<div class="tbody"><strong>What you bring</strong>
+
+Required:
+· <ph class="ph">KO CRITERION 1 (e.g. "Currently enrolled in a relevant degree — HR, business or similar")</ph>
+· <ph class="ph">KO CRITERION 2 (e.g. "Fluent English (B2+)")</ph>
+· <ph class="ph">EXPERIENCE CRITERION (e.g. "First practical HR experience via internship or part-time role")</ph>
+
+Nice to have:
+· <ph class="ph opt">NICE-TO-HAVE 1 (e.g. "Experience with HRIS tools such as Workday or SAP SuccessFactors")</ph>
+· <ph class="ph opt">NICE-TO-HAVE 2</ph></div></div>
+              <div class="ts"><div class="tsl">What we offer</div>
+<div class="tbody"><strong>What Birkenstock offers</strong>
+
+· International team across <ph class="ph">X COUNTRIES</ph>
+· <ph class="ph">CONCRETE BENEFIT 1 (e.g. "Hands-on ownership from day one")</ph>
+· <ph class="ph opt">CONCRETE BENEFIT 2</ph>
+· Location: Linz am Rhein (Burg Ockenfels) · Start: <ph class="ph">DATE</ph> · Duration: <ph class="ph">CONTRACT TYPE</ph></div></div>
+              <div class="ts"><div class="tsl">Apply</div>
+<div class="tbody">Send your CV to <ph class="ph">EMAIL</ph> or apply via our careers portal. Questions? Contact <ph class="ph">YOUR NAME</ph> in HR International directly.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="cb2" id="complete-unit1" onclick="done('unit1')"><span>Einheit abschließen</span></button>
+    </div>
+
+    <!-- ═══ UNIT 2: CV SCREENING ═══ -->
+    <div class="page" id="page-unit2">
+      <!-- Cork material texture / natural materials -->
+      <div class="hero">
+        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1400&q=85&auto=format&fit=crop&crop=center" alt="Structured review">
+        <div class="hero-ov">
+          <div class="hero-ey">Einheit 2 · Woche 2</div>
+          <div class="hero-ti">CV-Screening<br>strukturiert angehen</div>
+        </div>
+      </div>
+      <div class="u-rl"><div class="u-ln"></div><div class="u-ey">Woche 2 · Bewerbungen sichten</div></div>
+      <div class="u-ti">CV-Screening<br>strukturiert angehen</div>
+      <div class="u-mt"><div class="u-mi">— ca. 60 Minuten</div></div>
+      <div class="tabs">
+        <div class="tab active" onclick="sw(this,'u2-th')">Theorie</div>
+        <div class="tab" onclick="sw(this,'u2-rs')">Scoring-Raster</div>
+        <div class="tab" onclick="sw(this,'u2-bi')">Bias vermeiden</div>
+        <div class="tab" onclick="sw(this,'u2-qz')">Quiz</div>
+      </div>
+
+      <div class="tab-panel active" id="u2-th">
+        <div class="card">
+          <div class="ch"><div class="ci d">◎</div><div class="ct">Warum strukturiertes Sichten wichtig ist</div></div>
+          <div class="cb"><p>Ohne Struktur sichtest du auf Basis von Bauchgefühl – und damit auf Basis von Bias. Ein Scoring-Raster hilft dir, schnell und fair zu entscheiden und deine Entscheidungen auch im Team zu begründen.</p></div>
+          <div class="g2">
+            <div class="gi"><div class="gl">Muss-Kriterien (KO)</div><div class="gt">Zwingend erfüllt. Fehlen sie, scheidet der Kandidat aus – unabhängig von anderen Stärken. Vor dem Sichten definieren.</div></div>
+            <div class="gi"><div class="gl">Nice-to-have</div><div class="gt">Zusatzpunkte, die bei Gleichstand entscheiden. Nicht disqualifizierend wenn sie fehlen.</div></div>
+            <div class="gi"><div class="gl">Scoring (1–3)</div><div class="gt">1 = nicht erfüllt, 2 = teilweise erfüllt, 3 = voll erfüllt. Gewichtete Summe ergibt ein klares Ranking.</div></div>
+            <div class="gi"><div class="gl">Dokumentation</div><div class="gt">Begründung schriftlich festhalten – wichtig für Transparenz im Team und Rechtskonformität (AGG, DSGVO).</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="u2-rs">
+        <div class="card">
+          <div class="ch"><div class="ci p">◈</div><div class="ct">Scoring-Raster: HR-Koordinator:in (Beispiel)</div></div>
+          <div class="cb"><p>Definiere Kriterien immer <em>vor</em> dem Sichten. Passe Gewichtungen pro Stelle an.</p></div>
+          <table class="dt">
+            <thead><tr><th>Kriterium</th><th>Typ</th><th style="text-align:center">Gewicht</th><th style="text-align:center">Kand. A</th><th style="text-align:center">Kand. B</th></tr></thead>
+            <tbody>
+              <tr><td>Studium HR, BWL o.ä. (mind. 4. Semester)</td><td><span class="badge bko">KO</span></td><td style="text-align:center">—</td><td style="text-align:center">✓</td><td style="text-align:center">✓</td></tr>
+              <tr><td>Englisch fließend (B2+)</td><td><span class="badge bko">KO</span></td><td style="text-align:center">—</td><td style="text-align:center">✓</td><td style="text-align:center">✓</td></tr>
+              <tr><td>Erste HR-Erfahrung (Praktikum / WS)</td><td><span class="badge bmu">Must</span></td><td style="text-align:center">3×</td><td style="text-align:center">3</td><td style="text-align:center">2</td></tr>
+              <tr><td>Erfahrung mit internationalen Teams</td><td><span class="badge bpl">Plus</span></td><td style="text-align:center">2×</td><td style="text-align:center">2</td><td style="text-align:center">3</td></tr>
+              <tr><td>HRIS-Kenntnisse (Workday, SAP SF o.ä.)</td><td><span class="badge bpl">Plus</span></td><td style="text-align:center">1×</td><td style="text-align:center">1</td><td style="text-align:center">2</td></tr>
+              <tr style="background:var(--parch);font-weight:500"><td colspan="2"><strong>Gesamtscore</strong></td><td></td><td style="text-align:center"><strong>16</strong></td><td style="text-align:center"><strong>16</strong></td></tr>
+            </tbody>
+          </table>
+          <div class="nb info" style="margin-top:16px"><div class="nbl">Bei Gleichstand</div><div class="nbt">Entscheiden weiche Faktoren – Teampassung, spezifische Projekterfahrung, Sprachkenntnisse. Immer dokumentieren warum.</div></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="u2-bi">
+        <div class="card">
+          <div class="ch"><div class="ci r">⚠</div><div class="ct">Die 5 häufigsten Bias beim CV-Sichten</div></div>
+          <div class="cb"><p>Kenne sie – dann kannst du aktiv gegensteuern.</p></div>
+          <div class="nb" style="margin-top:16px"><div class="nbl">Affinity Bias (Ähnlichkeitsfehler)</div><div class="nbt">Du bevorzugst Kandidaten, die dir ähnlich sind (gleiche Uni, gleicher Hintergrund). Gegenmaßnahme: Fokus auf konkrete, vorab definierte Kriterien statt persönlicher Resonanz.</div></div>
+          <div class="nb"><div class="nbl">Halo-Effekt</div><div class="nbt">Ein Merkmal (z.B. bekannter Arbeitgeber) strahlt positiv auf das gesamte Profil ab. Gegenmaßnahme: Jedes Kriterium einzeln und unabhängig bewerten.</div></div>
+          <div class="nb"><div class="nbl">Name / Gender Bias</div><div class="nbt">Namen signalisieren Geschlecht, Herkunft oder Alter und beeinflussen unbewusst. Gegenmaßnahme: Blindes Screening wo möglich; explizites Bewusstsein sonst.</div></div>
+          <div class="nb"><div class="nbl">Recency Bias</div><div class="nbt">Der letzte Lebenslauf färbt die Bewertung des aktuellen. Gegenmaßnahme: Bewertungsbögen direkt nach dem Sichten ausfüllen, nie in Batches nachträglich.</div></div>
+          <div class="nb"><div class="nbl">Confirmation Bias</div><div class="nbt">Du suchst nach Infos, die deine erste Einschätzung bestätigen. Gegenmaßnahme: Schreibe erst die Schwächen auf, dann die Stärken.</div></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="u2-qz">
+        <div class="qw">
+          <div class="qh"><div class="qb">Quiz</div><div class="qt">CV-Screening</div></div>
+          <div class="qq">Wann solltest du deine Screening-Kriterien festlegen?</div>
+          <div class="qo">
+            <button class="qopt" onclick="ans(this,false,'q3','Falsch. Danach riskierst du, die Kriterien unbewusst an die gesichteten Profile anzupassen.')">Nachdem du die ersten 10 Bewerbungen gelesen hast</button>
+            <button class="qopt" onclick="ans(this,true,'q3','Richtig! Vor dem Sichten – gemeinsam mit dem Hiring Manager. So bleibst du objektiv und fair.')">Vor dem ersten Sichten, gemeinsam mit dem Hiring Manager</button>
+            <button class="qopt" onclick="ans(this,false,'q3','Falsch. Dann sind die Entscheidungen bereits gefallen.')">Im Interview, um flexibel zu bleiben</button>
+          </div>
+          <div class="qfb" id="feedback-q3"></div>
+        </div>
+      </div>
+      <button class="cb2" id="complete-unit2" onclick="done('unit2')"><span>Einheit abschließen</span></button>
+    </div>
+
+    <!-- ═══ UNIT 3: INTERVIEWS ═══ -->
+    <div class="page" id="page-unit3">
+      <!-- Birkenstock Arizona side view – clean, minimal, product-focus -->
+      <div class="hero">
+        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=1400&q=85&auto=format&fit=crop&crop=center" alt="Precision craftsmanship">
+        <div class="hero-ov">
+          <div class="hero-ey">Einheit 3 · Woche 3</div>
+          <div class="hero-ti">Strukturierte Interviews<br>mit der STAR-Methode</div>
+        </div>
+      </div>
+      <div class="u-rl"><div class="u-ln"></div><div class="u-ey">Woche 3 · Interviews</div></div>
+      <div class="u-ti">Strukturierte Interviews<br>führen</div>
+      <div class="u-mt"><div class="u-mi">— ca. 90 Minuten</div><div class="u-mi">— STAR · Fragenbank · Scoring · Leitfaden</div></div>
+      <div class="tabs">
+        <div class="tab active" onclick="sw(this,'u3-st')">STAR-Methode</div>
+        <div class="tab" onclick="sw(this,'u3-fq')">Fragenbank</div>
+        <div class="tab" onclick="sw(this,'u3-bw')">Bewertung</div>
+        <div class="tab" onclick="sw(this,'u3-gd')">Interview-Leitfaden</div>
+        <div class="tab" onclick="sw(this,'u3-qz')">Quiz</div>
+      </div>
+
+      <div class="tab-panel active" id="u3-st">
+        <div class="card">
+          <div class="ch"><div class="ci p">✦</div><div class="ct">Die STAR-Methode</div></div>
+          <div class="cb"><p>Vergangenes Verhalten ist der stärkste Indikator für zukünftiges Verhalten. STAR strukturiert deine Fragen und die Antworten des Kandidaten – du erhältst vergleichbare, evidenzbasierte Daten über alle Kandidaten hinweg.</p></div>
+          <div class="sg">
+            <div class="sc"><div class="sl">S</div><div class="sn">Situation</div><div class="sd">Was war der Kontext? Rahmenbedingungen, Zeitpunkt, Einsätze. Wann und wo ist das passiert?</div></div>
+            <div class="sc"><div class="sl">T</div><div class="sn">Task</div><div class="sd">Was war deine konkrete Aufgabe? Was warst du persönlich verantwortlich zu liefern, und für wen?</div></div>
+            <div class="sc"><div class="sl">A</div><div class="sn">Action</div><div class="sd">Was hast du konkret getan? Nicht „wir" – sondern „ich". Welche Entscheidungen hast du getroffen und warum?</div></div>
+            <div class="sc"><div class="sl">R</div><div class="sn">Result</div><div class="sd">Was war das messbare Ergebnis? Was würdest du beim nächsten Mal anders machen? Was hast du gelernt?</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="u3-fq">
+        <div class="card">
+          <div class="ch"><div class="ci p">◎</div><div class="ct">Fragenbank — 8 STAR-Fragen für HR-Rollen</div></div>
+          <div class="cb"><p>Stelle immer eine Folgefrage wenn die Antwort abstrakt bleibt: „Was genau hast du dabei getan?" oder „Was war das konkrete Ergebnis?"</p></div>
+          <div class="nb info" style="margin-top:16px"><div class="nbl">Kommunikation &amp; Stakeholder</div><div class="nbt">„Erzähl mir von einer Situation, in der du verschiedene Stakeholder mit unterschiedlichen Interessen unter einen Hut bringen musstest. Was war dein Vorgehen und was war das Ergebnis?"</div></div>
+          <div class="nb info"><div class="nbl">Umgang mit Druck / Priorisierung</div><div class="nbt">„Gib mir ein Beispiel, bei dem du mehrere dringende Aufgaben gleichzeitig hattest. Wie hast du priorisiert – und was war das Ergebnis?"</div></div>
+          <div class="nb info"><div class="nbl">Selbstständigkeit</div><div class="nbt">„Beschreibe eine Aufgabe, die du vollständig eigenständig von Anfang bis Ende umgesetzt hast – ohne viel Anleitung. Wie bist du vorgegangen?"</div></div>
+          <div class="nb info"><div class="nbl">Interkulturalität (für Int. HR besonders relevant)</div><div class="nbt">„Erzähl mir von einer Erfahrung, bei der du mit Menschen aus anderen Kulturen zusammengearbeitet hast. Was war herausfordernd – und was nimmst du mit?"</div></div>
+          <div class="nb info"><div class="nbl">Fehlerkultur</div><div class="nbt">„Erzähl mir von einem beruflichen Fehler. Was ist passiert, wie hast du reagiert – und was hat sich dadurch in deiner Arbeitsweise verändert?"</div></div>
+          <div class="nb info"><div class="nbl">Schwierige Teamdynamik</div><div class="nbt">„Beschreibe eine Situation, in der ein Team nicht gut funktioniert hat. Was war dein persönlicher Beitrag zur Verbesserung?"</div></div>
+          <div class="nb info"><div class="nbl">Überzeugungsarbeit</div><div class="nbt">„Gab es eine Situation, in der du jemanden von etwas überzeugen musstest, das er/sie anfangs ablehnte? Wie bist du dabei vorgegangen?"</div></div>
+          <div class="nb info"><div class="nbl">Initiative &amp; Verbesserungen</div><div class="nbt">„Hast du mal einen Prozess verbessert, ohne explizit darum gebeten worden zu sein? Was hast du konkret verändert – und was war das Ergebnis?"</div></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="u3-bw">
+        <div class="card">
+          <div class="ch"><div class="ci d">◈</div><div class="ct">Antworten objektiv bewerten</div></div>
+          <div class="cb"><p>Fülle das Scoring direkt nach dem Interview aus – bevor der Eindruck verblasst und vor dem Gespräch mit dem Hiring Manager.</p></div>
+          <div class="g2" style="margin-top:18px">
+            <div class="gi"><div class="gl" style="color:var(--red)">1 — Nicht nachgewiesen</div><div class="gt">Keine konkrete Situation. Antwort bleibt abstrakt, generisch oder bezieht sich auf „wir" statt „ich". Kein verwertbarer Beleg.</div></div>
+            <div class="gi"><div class="gl" style="color:#7A5510">2 — Teilweise nachgewiesen</div><div class="gt">Situation erkennbar, aber Handlung oder Ergebnis unklar. Gezielte Nachfragen waren nötig, um Details herauszuarbeiten.</div></div>
+            <div class="gi"><div class="gl" style="color:var(--sage)">3 — Klar nachgewiesen</div><div class="gt">Konkrete Situation, klare eigene Handlung, messbares Ergebnis. Strukturiert und überzeugend – wenig Nachfragen nötig.</div></div>
+            <div class="gi"><div class="gl">Folgefragen-Trigger</div><div class="gt">Score 1–2: „Was genau hast du dabei getan?" / „Was war das konkrete Ergebnis?" / „Was war dein persönlicher Anteil?"</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="u3-gd">
+        <div class="card">
+          <div class="ch"><div class="ci d">◈</div><div class="ct">Interview-Leitfaden (druckfertig)</div></div>
+          <div class="cb"><p>Vollständiger Ablauf für ein 45–60 min strukturiertes Interview. Anpassbar pro Rolle.</p></div>
+          <div class="tw2">
+            <div class="tb"><div class="tbl">Interview-Leitfaden · Birkenstock HR International</div><button class="tcp" onclick="cp('tguide')">Kopieren</button></div>
+            <div id="tguide" class="ti">
+              <div class="ts"><div class="tsl">Vorbereitung (vor dem Gespräch)</div>
+<div class="tbody">☐ Lebenslauf + Anschreiben gelesen, Beobachtungen notiert
+☐ Scoring-Raster vorbereitet (KO-Kriterien bestätigt)
+☐ 3–4 STAR-Fragen ausgewählt (passend zur Rolle)
+☐ Raum / Videolink organisiert
+☐ Kandidat:in 24h vorab per Mail bestätigt
+
+Stelle: <ph class="ph">JOBTITEL</ph>
+Kandidat:in: <ph class="ph">NAME</ph>
+Datum / Uhrzeit: <ph class="ph">DATUM · UHRZEIT</ph>
+Interviewer: <ph class="ph">DEIN NAME</ph> <ph class="ph opt">+ HIRING MANAGER (optional)</ph></div></div>
+              <div class="ts"><div class="tsl">Einstieg (5 min)</div>
+<div class="tbody">1. Begrüßung &amp; Vorstellung
+   „Hallo [Name], schön dass es geklappt hat. Ich bin [Dein Name] aus dem HR International Team bei Birkenstock."
+
+2. Agenda kurz erklären
+   „Wir haben ca. 45 Minuten. Ich stelle dir Fragen zu konkreten Erfahrungen aus deiner Vergangenheit – bitte gerne mit konkreten Beispielen. Am Ende hast du Zeit, deine Fragen zu stellen."
+
+3. Kurze Unternehmensvorstellung (2 min)
+   Birkenstock: Shoemaking-Tradition seit 1774, NYSE-notiert seit Oktober 2023 (BIRK), EUR 1,8 Mrd. Umsatz FY2024 (Quelle: SEC Filing), ~7.400 Mitarbeitende, HQ Burg Ockenfels, Linz am Rhein.</div></div>
+              <div class="ts"><div class="tsl">CV-Walkthrough (10 min)</div>
+<div class="tbody">„Erzähl mir kurz deinen beruflichen Weg – was waren die wichtigsten Stationen und was hat dich zu dieser Bewerbung geführt?"
+
+Nachfragen bei:
+· Lücken → „Was hast du in dieser Zeit gemacht?"
+· Kurze Stationen → „Was hat dich dort weitergebracht?"
+· Wechselmotivation → „Was war der ausschlaggebende Faktor?"</div></div>
+              <div class="ts"><div class="tsl">STAR-Fragen (20–25 min)</div>
+<div class="tbody">Frage 1: <ph class="ph">STAR-FRAGE (aus Fragenbank)</ph>
+Score (1–3): ___    Notizen: _______________________________
+
+Frage 2: <ph class="ph">STAR-FRAGE</ph>
+Score (1–3): ___    Notizen: _______________________________
+
+Frage 3: <ph class="ph">STAR-FRAGE</ph>
+Score (1–3): ___    Notizen: _______________________________
+
+<ph class="ph opt">Frage 4 (optional): ___________________________</ph>
+Score (1–3): ___    Notizen: _______________________________</div></div>
+              <div class="ts"><div class="tsl">Fragen des Kandidaten (5–10 min)</div>
+<div class="tbody">„Hast du Fragen an uns – zur Rolle, zum Team oder zu Birkenstock?"
+
+Notizen: ___________________________________________________</div></div>
+              <div class="ts"><div class="tsl">Abschluss &amp; Next Steps</div>
+<div class="tbody">„Vielen Dank für deine Zeit und deine offenen Antworten. Wir melden uns bis [DATUM] bei dir."
+
+Gesamteindruck (1–5): ___
+Empfehlung:  ☐ Weiter  ☐ Absage  ☐ Rücksprache nötig
+
+Begründung: _______________________________________________</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="u3-qz">
+        <div class="qw">
+          <div class="qh"><div class="qb">Quiz</div><div class="qt">STAR-Interviews</div></div>
+          <div class="qq">Ein Kandidat antwortet: „In meinem letzten Job haben wir immer sehr teamorientiert gearbeitet." Was tust du?</div>
+          <div class="qo">
+            <button class="qopt" onclick="ans(this,false,'q4','Nicht ideal. „Wir" ist kein Beleg für die individuelle Kompetenz der Person.')">Die Antwort als Beleg für Teamfähigkeit werten</button>
+            <button class="qopt" onclick="ans(this,true,'q4','Richtig! Die Antwort ist zu abstrakt. Frage nach dem konkreten eigenen Beitrag – das ist STAR.')">Nachfragen: „Was war konkret dein eigener Beitrag in einem dieser Projekte?"</button>
+            <button class="qopt" onclick="ans(this,false,'q4','Falsch. Die Chance, wertvolle Informationen zu gewinnen, würde verloren gehen.')">Die Frage überspringen und zur nächsten übergehen</button>
+          </div>
+          <div class="qfb" id="feedback-q4"></div>
+        </div>
+      </div>
+      <button class="cb2" id="complete-unit3" onclick="done('unit3')"><span>Einheit abschließen</span></button>
+    </div>
+
+    <!-- ═══ UNIT 4: KOMMUNIKATION ═══ -->
+    <div class="page" id="page-unit4">
+      <!-- Leather straps / buckles detail – Birkenstock material quality -->
+      <div class="hero">
+        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=1400&q=85&auto=format&fit=crop&crop=center" alt="Quality details">
+        <div class="hero-ov">
+          <div class="hero-ey">Einheit 4 · Woche 4</div>
+          <div class="hero-ti">Kandidaten-Kommunikation<br>auf Markenniveau</div>
+        </div>
+      </div>
+      <div class="u-rl"><div class="u-ln"></div><div class="u-ey">Woche 4 · Kommunikation</div></div>
+      <div class="u-ti">Kandidaten-Kommunikation<br>als Markenerlebnis</div>
+      <div class="u-mt"><div class="u-mi">— ca. 60 Minuten</div><div class="u-mi">— 5 fertige E-Mail-Vorlagen</div></div>
+      <div class="tabs">
+        <div class="tab active" onclick="sw(this,'u4-cx')">Candidate Experience</div>
+        <div class="tab" onclick="sw(this,'u4-em')">E-Mail-Vorlagen</div>
+        <div class="tab" onclick="sw(this,'u4-qz')">Quiz</div>
+      </div>
+
+      <div class="tab-panel active" id="u4-cx">
+        <div class="card">
+          <div class="ch"><div class="ci p">✦</div><div class="ct">Was ist Candidate Experience?</div></div>
+          <div class="cb"><p>Candidate Experience ist alles, was ein Bewerber vom ersten Kontakt bis zur finalen Entscheidung erlebt. Jede Kommunikation ist ein Birkenstock-Markenerlebnis – und als NYSE-notiertes Unternehmen (BIRK) hat die öffentliche Wahrnehmung direkten Einfluss auf den Employer Brand.</p></div>
+          <div class="g2" style="margin-top:18px">
+            <div class="gi"><div class="gl">Geschwindigkeit</div><div class="gt">Rückmeldung innerhalb 3–5 Werktagen nach Bewerbungseingang. Lange Stille ist der meistgenannte Kritikpunkt auf Glassdoor.</div></div>
+            <div class="gi"><div class="gl">Transparenz</div><div class="gt">Wie viele Stufen? Wann Feedback? Wen trifft man? Frühzeitig und klar kommunizieren – Unsicherheit signalisiert Unorganisiertheit.</div></div>
+            <div class="gi"><div class="gl">Respekt auch bei Absage</div><div class="gt">Persönliche, begründete Absage statt Generics. Kandidaten erinnern sich – und schreiben Bewertungen.</div></div>
+            <div class="gi"><div class="gl">Birkenstock-Standard</div><div class="gt">Birkenstock produziert >95% aller Produkte in Deutschland mit höchsten Qualitätsstandards. <span class="src">Manufacturing Dive 2024</span> Die Recruiting-Kommunikation sollte denselben Anspruch verkörpern.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="u4-em">
+        <div class="card">
+          <div class="ch"><div class="ci d">✉</div><div class="ct">Vorlage 1 — Eingangsbestätigung (DE)</div></div>
+          <div class="tw2">
+            <div class="tb"><div class="tbl">Eingangsbestätigung · Deutsch</div><button class="tcp" onclick="cp('m1de')">Kopieren</button></div>
+            <div id="m1de" class="ti"><div class="ts"><div class="tbody">Betreff: Deine Bewerbung bei Birkenstock – <ph class="ph">STELLE</ph>
+
+Liebe/r <ph class="ph">VORNAME</ph>,
+
+vielen Dank für deine Bewerbung auf die Position <ph class="ph">STELLE</ph> bei Birkenstock und dein Interesse an unserem internationalen HR-Team.
+
+Deine Unterlagen sind eingegangen. Wir werden sie sorgfältig prüfen und uns in den nächsten <ph class="ph">X WERKTAGEN</ph> bei dir melden.
+
+Bei Fragen stehe ich dir jederzeit zur Verfügung.
+
+Herzliche Grüße,
+<ph class="ph">DEIN NAME</ph>
+HR International · Birkenstock Group
+<ph class="ph opt">Tel: +49 ...</ph></div></div></div>
+          </div>
+        </div>
+        <div class="card" style="margin-top:14px">
+          <div class="ch"><div class="ci d">✉</div><div class="ct">Vorlage 2 — Interview-Einladung (DE)</div></div>
+          <div class="tw2">
+            <div class="tb"><div class="tbl">Interview-Einladung · Deutsch</div><button class="tcp" onclick="cp('m2de')">Kopieren</button></div>
+            <div id="m2de" class="ti"><div class="ts"><div class="tbody">Betreff: Einladung zum Gespräch – <ph class="ph">STELLE</ph> | Birkenstock
+
+Liebe/r <ph class="ph">VORNAME</ph>,
+
+wir haben deine Bewerbung geprüft und würden dich gerne zu einem ersten Kennenlerngespräch einladen.
+
+Termin: <ph class="ph">DATUM</ph>, <ph class="ph">UHRZEIT</ph>
+Format: <ph class="ph">Videocall / Vor Ort in ORT</ph>
+<ph class="ph opt">Link/Adresse: ___</ph>
+Gesprächspartner: <ph class="ph">NAME(N)</ph>, <ph class="ph">ROLLE(N)</ph>
+Dauer: ca. <ph class="ph">45 / 60</ph> Minuten
+
+Falls der Termin nicht passt, melde dich gerne – wir finden eine Alternative.
+
+Ich freue mich auf das Gespräch!
+
+Herzliche Grüße,
+<ph class="ph">DEIN NAME</ph>
+HR International · Birkenstock Group</div></div></div>
+          </div>
+        </div>
+        <div class="card" style="margin-top:14px">
+          <div class="ch"><div class="ci d">✉</div><div class="ct">Vorlage 3 — Absage nach Bewerbungseingang (DE)</div></div>
+          <div class="tw2">
+            <div class="tb"><div class="tbl">Absage · Bewerbungsphase · Deutsch</div><button class="tcp" onclick="cp('m3de')">Kopieren</button></div>
+            <div id="m3de" class="ti"><div class="ts"><div class="tbody">Betreff: Deine Bewerbung bei Birkenstock – <ph class="ph">STELLE</ph>
+
+Liebe/r <ph class="ph">VORNAME</ph>,
+
+vielen Dank für deine Bewerbung und dein Interesse an Birkenstock.
+
+Nach sorgfältiger Prüfung haben wir uns bei dieser Stelle für Kandidat:innen entschieden, deren Profil noch etwas näher an unseren spezifischen Anforderungen liegt. Das war keine leichte Entscheidung – wir haben deine Unterlagen sehr aufmerksam gelesen.
+
+<ph class="ph opt">Besonders positiv ist uns [KONKRETE STÄRKE] aufgefallen. Dürfen wir deine Unterlagen für [X Monate] in unserem Talent Pool speichern? Falls du einverstanden bist, antworte bitte kurz mit „Ja, ich stimme zu." – das dokumentiert deine Einwilligung gemäß DSGVO Art. 6 Abs. 1 lit. a.</ph>
+
+Wir wünschen dir viel Erfolg bei deiner weiteren Suche.
+
+Mit freundlichen Grüßen,
+<ph class="ph">DEIN NAME</ph>
+HR International · Birkenstock Group</div></div></div>
+          </div>
+        </div>
+        <div class="card" style="margin-top:14px">
+          <div class="ch"><div class="ci d">✉</div><div class="ct">Vorlage 4 — Absage nach Interview (EN)</div></div>
+          <div class="tw2">
+            <div class="tb"><div class="tbl">Post-Interview Rejection · English</div><button class="tcp" onclick="cp('m4en')">Copy</button></div>
+            <div id="m4en" class="ti"><div class="ts"><div class="tbody">Subject: Your application at Birkenstock – <ph class="ph">ROLE</ph>
+
+Dear <ph class="ph">FIRST NAME</ph>,
+
+thank you for taking the time to speak with us about the <ph class="ph">ROLE</ph> position at Birkenstock. It was a genuinely interesting conversation.
+
+After careful consideration, we have decided to move forward with another candidate whose experience more closely matches the specific requirements of this role. This was not an easy decision.
+
+<ph class="ph opt">We were particularly impressed by [SPECIFIC OBSERVATION — be concrete]. May we retain your profile in our talent pool for [X months]? Please reply with a brief confirmation if you agree — this documents your consent under GDPR Art. 6(1)(a).</ph>
+
+We wish you well and hope our paths cross again.
+
+Best regards,
+<ph class="ph">YOUR NAME</ph>
+HR International · Birkenstock Group</div></div></div>
+          </div>
+        </div>
+        <div class="card" style="margin-top:14px">
+          <div class="ch"><div class="ci d">✉</div><div class="ct">Vorlage 5 — Angebot / Zusage-Follow-up (EN)</div></div>
+          <div class="tw2">
+            <div class="tb"><div class="tbl">Offer Follow-up · English</div><button class="tcp" onclick="cp('m5en')">Copy</button></div>
+            <div id="m5en" class="ti"><div class="ts"><div class="tbody">Subject: We'd love to have you join us — <ph class="ph">ROLE</ph> | Birkenstock
+
+Dear <ph class="ph">FIRST NAME</ph>,
+
+it is my genuine pleasure to confirm our offer for the position of <ph class="ph">ROLE</ph> within Birkenstock's <ph class="ph">TEAM / DEPARTMENT</ph>.
+
+Your start date would be <ph class="ph">DATE</ph>, based in <ph class="ph">LOCATION (e.g. Linz am Rhein / Burg Ockenfels)</ph>.
+The formal contract will follow via <ph class="ph">SYSTEM / POST</ph> within <ph class="ph">X DAYS</ph>.
+
+In the meantime, please don't hesitate to reach out — about the role, the team, relocation support or anything else.
+
+We are looking forward to welcoming you to Birkenstock.
+
+Best regards,
+<ph class="ph">YOUR NAME</ph>
+HR International · Birkenstock Group</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="u4-qz">
+        <div class="qw">
+          <div class="qh"><div class="qb">Quiz</div><div class="qt">Kandidaten-Kommunikation</div></div>
+          <div class="qq">Wie lange sollte maximal zwischen Bewerbungseingang und erster Rückmeldung vergehen?</div>
+          <div class="qo">
+            <button class="qopt" onclick="ans(this,false,'q5','Zu lang. In 4 Wochen haben viele starke Kandidaten bereits woanders zugesagt.')">4 Wochen – wir haben viele Bewerbungen</button>
+            <button class="qopt" onclick="ans(this,true,'q5','Richtig! 3–5 Werktage ist der Standard. Auch eine kurze Eingangsbestätigung zählt und signalisiert Wertschätzung.')">3–5 Werktage, auch wenn nur eine Eingangsbestätigung</button>
+            <button class="qopt" onclick="ans(this,false,'q5','Sehr gut, aber nicht immer realistisch. Wichtiger ist: innerhalb der ersten Woche.')">Am gleichen Tag</button>
+          </div>
+          <div class="qfb" id="feedback-q5"></div>
+        </div>
+      </div>
+      <button class="cb2" id="complete-unit4" onclick="done('unit4')"><span>Einheit abschließen</span></button>
+    </div>
+
+    <!-- ═══ UNIT 5: ONBOARDING ═══ -->
+    <div class="page" id="page-unit5">
+      <!-- Birkenstock sandal on natural surface – warm, organic -->
+      <div class="hero">
+        <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=1400&q=85&auto=format&fit=crop&crop=center" alt="Shoes editorial">
+        <div class="hero-ov">
+          <div class="hero-ey">Einheit 5 · Woche 5</div>
+          <div class="hero-ti">Effektives Onboarding<br>gestalten</div>
+        </div>
+      </div>
+      <div class="u-rl"><div class="u-ln"></div><div class="u-ey">Woche 5 · Onboarding</div></div>
+      <div class="u-ti">Effektives Onboarding<br>gestalten</div>
+      <div class="u-mt"><div class="u-mi">— ca. 90 Minuten</div></div>
+      <div class="tabs">
+        <div class="tab active" onclick="sw(this,'u5-th')">Theorie</div>
+        <div class="tab" onclick="sw(this,'u5-cl')">30-Tage-Checkliste</div>
+        <div class="tab" onclick="sw(this,'u5-tm')">Preboarding-Mail</div>
+        <div class="tab" onclick="sw(this,'u5-qz')">Quiz</div>
+      </div>
+
+      <div class="tab-panel active" id="u5-th">
+        <div class="card">
+          <div class="ch"><div class="ci s">✦</div><div class="ct">Onboarding vs. Preboarding</div></div>
+          <div class="cb"><p>Die besten Unternehmen beginnen das Onboarding nicht am ersten Arbeitstag – sondern direkt nach der Zusage. Eine schlechte erste Erfahrung signalisiert die Diskrepanz zwischen dem Markenversprechen und der internen Realität.</p></div>
+          <div class="g2" style="margin-top:18px">
+            <div class="gi"><div class="gl">Preboarding (vor Tag 1)</div><div class="gt">Willkommens-Mail mit Logistik, IT-Zugänge vorbereiten, ersten Kontakt benennen. Ziel: Vorfreude statt Unsicherheit.</div></div>
+            <div class="gi"><div class="gl">Tag 1 — Ankommen</div><div class="gt">Persönliche Begrüßung, Arbeitsplatz vorbereitet, IT funktioniert, Mittagessen im Team. Kein Informations-Overload.</div></div>
+            <div class="gi"><div class="gl">Woche 1–4 — Orientierung</div><div class="gt">Regelmäßige Check-ins, klare erste Aufgaben, strukturierte Vorstellungsrunden bei Key Stakeholdern.</div></div>
+            <div class="gi"><div class="gl">Tag 30 / 60 / 90</div><div class="gt">Strukturierte Feedback-Gespräche: Was läuft gut? Was ist unklar? Gibt es Unterstützungsbedarf?</div></div>
+          </div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <div class="ch"><div class="ci d">◎</div><div class="ct">Besonderheiten für internationale Mitarbeitende</div></div>
+          <div class="cb">
+            <p>Birkenstock wächst besonders in der APMA-Region (+42% in FY2024 auf Constant-Currency-Basis). <span class="src">SEC FY2024</span> Das bedeutet zunehmend internationale Einstellungen und Umsiedlungen:</p>
+            <ul style="margin-top:12px">
+              <li><strong>Relocation-Support</strong> — Wohnungssuche, Behördengänge, Visa – kläre frühzeitig, was Birkenstock übernimmt. Besonders relevant für Einstellungen am HQ Linz am Rhein (Burg Ockenfels)</li>
+              <li><strong>Buddy-System</strong> — einen erfahrenen Kollegen zuweisen, idealerweise mit Bezug zur Herkunftsregion oder -sprache</li>
+              <li><strong>Kulturelle Unterschiede</strong> — Direktheit in Deutschland kann überraschend sein, v.a. für Kolleg:innen aus Asien (APMA-Region). Kurze Einführung hilft</li>
+              <li><strong>Sprache</strong> — alle wichtigen Dokumente auf Englisch verfügbar machen; Englisch ist Arbeitssprache in internationalen Teams</li>
+              <li><strong>Börsen-Compliance</strong> — NYSE-notiert seit Oktober 2023 (BIRK) <span class="src">Birkenstock IPO, Oktober 2023</span>; neue Mitarbeitende sollten Insider-Handelsregeln kennen</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="u5-cl">
+        <div class="card">
+          <div class="ch"><div class="ci s">✓</div><div class="ct">30-Tage Onboarding-Checkliste</div></div>
+          <div class="cb"><p>Klicke auf die Punkte, um sie als erledigt zu markieren.</p></div>
+          <ul class="cll" style="margin-top:18px">
+            <li class="cli" onclick="tick(this)"><div class="clb"></div><div class="clt"><strong>Vor Tag 1 —</strong> Preboarding-Willkommensmail mit Logistik, Ansprechperson und Dress Code versenden</div></li>
+            <li class="cli" onclick="tick(this)"><div class="clb"></div><div class="clt"><strong>Vor Tag 1 —</strong> Laptop, IT-Zugänge, E-Mail und Systemzugänge vorbereiten</div></li>
+            <li class="cli" onclick="tick(this)"><div class="clb"></div><div class="clt"><strong>Vor Tag 1 —</strong> Buddy / Peer-Ansprechperson benennen und informieren</div></li>
+            <li class="cli" onclick="tick(this)"><div class="clb"></div><div class="clt"><strong>Tag 1 —</strong> Persönliche Begrüßung durch direkte Führungskraft und HR</div></li>
+            <li class="cli" onclick="tick(this)"><div class="clb"></div><div class="clt"><strong>Tag 1 —</strong> Mittagessen mit dem direkten Team organisieren</div></li>
+            <li class="cli" onclick="tick(this)"><div class="clb"></div><div class="clt"><strong>Tag 1 —</strong> Wichtigste Tools, Systeme und interne Kommunikationskanäle erklären</div></li>
+            <li class="cli" onclick="tick(this)"><div class="clb"></div><div class="clt"><strong>Woche 1 —</strong> Kennenlerngespräche mit 3–5 Key Stakeholdern planen</div></li>
+            <li class="cli" onclick="tick(this)"><div class="clb"></div><div class="clt"><strong>Woche 1 —</strong> Erste konkrete Aufgabe oder kleines Projekt definieren und zuweisen</div></li>
+            <li class="cli" onclick="tick(this)"><div class="clb"></div><div class="clt"><strong>Woche 2 —</strong> Check-in-Gespräch: Wie läuft es? Was ist noch unklar?</div></li>
+            <li class="cli" onclick="tick(this)"><div class="clb"></div><div class="clt"><strong>Tag 30 —</strong> Erstes strukturiertes 30-Tage-Review mit Führungskraft</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="u5-tm">
+        <div class="card">
+          <div class="ch"><div class="ci s">◈</div><div class="ct">Preboarding-Willkommensmail</div></div>
+          <div class="cb"><p>Geht zwischen Zusage und erstem Arbeitstag heraus. Reduziert No-Shows und baut echte Vorfreude auf.</p></div>
+          <div class="tw2">
+            <div class="tb"><div class="tbl">Preboarding Welcome Mail · Deutsch/Englisch</div><button class="tcp" onclick="cp('mpreboard')">Kopieren</button></div>
+            <div id="mpreboard" class="ti"><div class="ts"><div class="tbody">Betreff: Wir freuen uns auf dich! / We're looking forward to welcoming you – Birkenstock
+
+Liebe/r <ph class="ph">VORNAME</ph>,
+
+dein Start bei Birkenstock rückt näher – wir freuen uns wirklich sehr auf dich!
+
+Damit du entspannt starten kannst, hier die wichtigsten Infos vorab:
+
+📅 Dein erster Arbeitstag
+<ph class="ph">DATUM</ph>, <ph class="ph">UHRZEIT</ph>
+<ph class="ph">ADRESSE (Burg Ockenfels, Linz am Rhein) / Videolink</ph>
+
+👤 Deine Ansprechperson am ersten Tag
+<ph class="ph">NAME</ph> (<ph class="ph">ROLLE</ph>) – bei Fragen vorab einfach melden!
+
+💻 IT &amp; Ausstattung
+<ph class="ph opt">Dein Laptop steht am ersten Tag bereit / wird vorab zugeschickt.</ph>
+Zugangsdaten erhältst du direkt beim Start.
+
+👗 Dresscode
+<ph class="ph">DRESSCODE (z.B. "Business Casual – wir sind unkompliziert")</ph>
+
+🍽 Mittagessen
+Am ersten Tag essen wir gemeinsam als Team – wir kümmern uns darum.
+
+Bei Fragen vor dem Start: Melde dich jederzeit bei mir.
+
+Herzlich willkommen bei Birkenstock – Seit 1774.
+
+<ph class="ph">DEIN NAME</ph>
+HR International · Birkenstock Group</div></div></div>
+          </div>
+        </div>
+        <div class="card" style="margin-top:18px">
+          <div class="ch"><div class="ci s">◈</div><div class="ct">Talent-Pool-Einwilligung (DSGVO-konform)</div></div>
+          <div class="cb"><p>Nur mit aktiver, dokumentierter Einwilligung dürfen Bewerberdaten über die 6-Monats-Frist (AGG) hinaus gespeichert werden. Diese Vorlage erfüllt die Anforderungen nach DSGVO Art. 6 Abs. 1 lit. a.</p></div>
+          <div class="tw2">
+            <div class="tb"><div class="tbl">Talent-Pool-Einwilligung · Deutsch/Englisch</div><button class="tcp" onclick="cp('mpool')">Kopieren</button></div>
+            <div id="mpool" class="ti"><div class="ts"><div class="tbody">Betreff: Dein Profil in unserem Talent Pool – Birkenstock
+
+Liebe/r <ph class="ph">VORNAME</ph>,
+
+noch einmal herzlichen Dank für dein Interesse an Birkenstock und die Zeit, die du in deinen Bewerbungsprozess für die Stelle <ph class="ph">STELLE</ph> investiert hast.
+
+Auch wenn es diesmal nicht geklappt hat: Dein Profil hat uns sehr beeindruckt – insbesondere <ph class="ph">KONKRETE STÄRKE (z.B. "deine Erfahrung in der internationalen Recruitingkoordination")</ph>.
+
+Dürfen wir deine Unterlagen für <ph class="ph">6 / 12</ph> Monate in unserem internen Talent Pool speichern? Das bedeutet: Wir melden uns bei dir, wenn eine passende Stelle offen ist.
+
+Wenn du einverstanden bist, antworte bitte kurz mit „Ja, ich stimme zu." – damit ist deine Einwilligung gemäß DSGVO Art. 6 Abs. 1 lit. a dokumentiert. Du kannst diese jederzeit per E-Mail widerrufen.
+
+Wir hoffen, bald wieder von dir zu hören!
+
+Herzliche Grüße,
+<ph class="ph">DEIN NAME</ph>
+HR International · Birkenstock Group</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="u5-qz">
+        <div class="qw">
+          <div class="qh"><div class="qb">Quiz</div><div class="qt">Onboarding</div></div>
+          <div class="qq">Was ist das Hauptziel von Preboarding?</div>
+          <div class="qo">
+            <button class="qopt" onclick="ans(this,false,'q6','Das ist Onboarding. Preboarding beginnt schon vor dem ersten Arbeitstag – unmittelbar nach der Zusage.')">Sicherstellen, dass alle Unterlagen am ersten Tag unterschrieben sind</button>
+            <button class="qopt" onclick="ans(this,true,'q6','Genau! Preboarding überbrückt die Zeit zwischen Zusage und erstem Arbeitstag – und reduziert No-Shows nachweislich.')">Vorfreude aufbauen und Unsicherheit reduzieren, bevor die Person anfängt</button>
+            <button class="qopt" onclick="ans(this,false,'q6','Das gehört zur Woche 1 des Onboardings, nicht zum Preboarding.')">Die erste Aufgabe beschreiben, damit jemand sofort produktiv ist</button>
+          </div>
+          <div class="qfb" id="feedback-q6"></div>
+        </div>
+      </div>
+      <button class="cb2" id="complete-unit5" onclick="done('unit5')"><span>Einheit abschließen</span></button>
+    </div>
+
+    <!-- ═══ UNIT 6: INTERNATIONAL ═══ -->
+    <div class="page" id="page-unit6">
+      <!-- Birkenstock Boston clog – natural material, different angle -->
+      <div class="hero">
+        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1400&q=85&auto=format&fit=crop&crop=center" alt="International shoes">
+        <div class="hero-ov">
+          <div class="hero-ey">Einheit 6 · Woche 7</div>
+          <div class="hero-ti">International Recruiting<br>&amp; DSGVO-Grundlagen</div>
+        </div>
+      </div>
+      <div class="u-rl"><div class="u-ln"></div><div class="u-ey">Woche 7 · International Recruiting</div></div>
+      <div class="u-ti">International Recruiting<br>&amp; DSGVO</div>
+      <div class="u-mt"><div class="u-mi">— ca. 90 Minuten</div></div>
+      <div class="tabs">
+        <div class="tab active" onclick="sw(this,'u6-gd')">DSGVO-Grundlagen</div>
+        <div class="tab" onclick="sw(this,'u6-ku')">Kulturelle Unterschiede</div>
+        <div class="tab" onclick="sw(this,'u6-qz')">Quiz</div>
+      </div>
+
+      <div class="tab-panel active" id="u6-gd">
+        <div class="card">
+          <div class="ch"><div class="ci d">◈</div><div class="ct">DSGVO im Recruiting — die 5 wichtigsten Punkte</div></div>
+          <div class="cb"><p>Als HR-Mitarbeitende:r verarbeitest du täglich personenbezogene Daten. Diese fünf Grundsätze sind nicht verhandelbar.</p></div>
+          <div class="nb info" style="margin-top:16px"><div class="nbl">1. Zweckbindung</div><div class="nbt">Bewerbungsdaten dürfen nur für den Zweck genutzt werden, für den sie eingereicht wurden – also die konkrete Stelle. Für andere Stellen ist eine erneute, explizite Einwilligung erforderlich.</div></div>
+          <div class="nb info"><div class="nbl">2. Speicherdauer</div><div class="nbt">Abgelehnte Bewerber:innen: Daten nach 6 Monaten löschen (Ausschlussfrist AGG). Ausnahme: aktive Einwilligung zur Talent-Pool-Speicherung liegt vor.</div></div>
+          <div class="nb info"><div class="nbl">3. Datenweitergabe</div><div class="nbt">Bewerbungsunterlagen nur an direkt am Prozess beteiligte Personen (Hiring Manager, HR). Keine Weitergabe ohne konkreten Anlass.</div></div>
+          <div class="nb info"><div class="nbl">4. Drittländer (Non-EU)</div><div class="nbt">Daten von EU-Bürger:innen dürfen nicht ohne weiteres in Länder ohne angemessenes Datenschutzniveau übertragen werden (z.B. USA ohne SCCs / EU-U.S. Data Privacy Framework). Relevant für Birkenstocks globale Operationen.</div></div>
+          <div class="nb info"><div class="nbl">5. Auskunfts- und Löschrecht</div><div class="nbt">Jede:r Bewerber:in kann verlangen, welche Daten gespeichert sind – und deren Löschung beantragen. Dein Team braucht einen dokumentierten, wiederholbaren Prozess dafür.</div></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="u6-ku">
+        <div class="card">
+          <div class="ch"><div class="ci d">◎</div><div class="ct">Kulturelle Unterschiede in Bewerbungen</div></div>
+          <div class="cb"><p>Was in Deutschland Standard ist, kann anderswo ungewöhnlich sein. Kenne die Normen – bewerte den Inhalt, nicht die Form. Birkenstock ist in über 100 Ländern vertreten. <span class="src">Birkenstock Group</span></p></div>
+          <table class="dt" style="margin-top:16px">
+            <thead><tr><th>Aspekt</th><th>Deutschland</th><th>USA / UK</th><th>Japan / Korea</th><th>Frankreich / Italien</th></tr></thead>
+            <tbody>
+              <tr><td>Foto im CV</td><td>Standard</td><td>Unüblich – vermeiden</td><td>Oft erwartet</td><td>Üblich</td></tr>
+              <tr><td>CV-Länge</td><td>2–3 Seiten</td><td>1 Seite erwartet</td><td>Flexibel</td><td>1–2 Seiten</td></tr>
+              <tr><td>Eigeninitiative</td><td>Positiv</td><td>Sehr positiv, erwartet</td><td>Kontextabhängig</td><td>Moderat</td></tr>
+              <tr><td>Direktheit im Interview</td><td>Direkt</td><td>Direkt, enthusiastisch</td><td>Indirekt, zurückhaltend</td><td>Expressiv, diskursiv</td></tr>
+              <tr><td>Gehaltsangabe im CV</td><td>Selten</td><td>Häufig</td><td>Selten</td><td>Manchmal</td></tr>
+              <tr><td>Referenzschreiben</td><td>Zeugnisse Standard</td><td>References on request</td><td>Variiert</td><td>Empfehlungsschreiben</td></tr>
+            </tbody>
+          </table>
+          <div class="nb info" style="margin-top:18px"><div class="nbl">Praxistipp</div><div class="nbt">Kein Foto aus den USA bedeutet nicht fehlende Professionalität – es ist eine andere Norm. Kläre Unklarheiten im Interview nach, statt im CV-Screening zu werten. Birkenstock wächst besonders in der APMA-Region <span class="src">SEC FY2024</span> – Kenntnis asiatischer Kommunikationsnormen ist damit ein echter Wettbewerbsvorteil.</div></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="u6-qz">
+        <div class="qw">
+          <div class="qh"><div class="qb">Quiz</div><div class="qt">International Recruiting &amp; DSGVO</div></div>
+          <div class="qq">Ein abgelehnter Kandidat bewirbt sich nicht erneut, aber du möchtest sein Profil für künftige Stellen behalten. Was ist DSGVO-konform?</div>
+          <div class="qo">
+            <button class="qopt" onclick="ans(this,false,'q7','Falsch. Ohne aktive Einwilligung dürfen Daten nicht über die 6-Monats-Frist hinaus gespeichert werden.')">Die Daten intern behalten – kein Schaden für den Kandidaten</button>
+            <button class="qopt" onclick="ans(this,true,'q7','Richtig! Nur mit aktiver, dokumentierter Einwilligung ist die Talent-Pool-Speicherung DSGVO-konform (Art. 6 Abs. 1 lit. a).')">Den Kandidaten fragen und seine Einwilligung dokumentiert einholen</button>
+            <button class="qopt" onclick="ans(this,false,'q7','Zu weit. Die Daten dürfen gespeichert werden – aber nur mit aktiver Einwilligung, nicht automatisch löschen.')">Alle Daten sofort nach der Absage löschen</button>
+          </div>
+          <div class="qfb" id="feedback-q7"></div>
+        </div>
+      </div>
+      <button class="cb2" id="complete-unit6" onclick="done('unit6')"><span>Einheit abschließen</span></button>
+    </div>
+
+  </div>
+</div>
+
+<div class="toast" id="toast">Einheit abgeschlossen</div>
+
+<script>
+const completed = new Set();
+const TOTAL = 6;
+const META = {
+  dashboard:{ title:'Übersicht',                crumb:'HR Academy',  wk:'Dashboard' },
+  unit1:    { title:'Stellenausschreibungen',   crumb:'Woche 1–2',   wk:'Woche 1' },
+  unit2:    { title:'CV-Screening',             crumb:'Woche 1–2',   wk:'Woche 2' },
+  unit3:    { title:'STAR-Interviews',          crumb:'Woche 3–4',   wk:'Woche 3' },
+  unit4:    { title:'Kommunikation',            crumb:'Woche 3–4',   wk:'Woche 4' },
+  unit5:    { title:'Onboarding',               crumb:'Woche 5–6',   wk:'Woche 5' },
+  unit6:    { title:'International & DSGVO',    crumb:'Woche 7–8',   wk:'Woche 7' },
+};
+
+function go(id, el){
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  document.querySelectorAll('.ni').forEach(n => n.classList.remove('active'));
+  const t = el || document.querySelector(`.ni[data-page="${id}"]`);
+  if(t) t.classList.add('active');
+  const m = META[id]||{};
+  document.getElementById('weekBadge').textContent = m.wk||'';
+  document.getElementById('breadcrumb').innerHTML =
+    id==='dashboard'
+      ? 'HR Academy <span>Übersicht</span>'
+      : `${m.crumb} <span>${m.title}</span>`;
+  window.scrollTo(0,0);
+}
+
+function sw(tab, panelId){
+  const page = tab.closest('.page');
+  tab.closest('.tabs').querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+  page.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById(panelId).classList.add('active');
+}
+
+function ans(btn, correct, qId, fb){
+  btn.closest('.qo').querySelectorAll('.qopt').forEach(b => b.classList.add('disabled'));
+  btn.classList.add(correct ? 'correct' : 'wrong');
+  const el = document.getElementById('feedback-'+qId);
+  if(el){ el.textContent = fb; el.className = 'qfb show '+(correct ? 'good' : 'bad'); }
+}
+
+function tick(item){
+  item.classList.toggle('checked');
+  item.querySelector('.clb').textContent = item.classList.contains('checked') ? '✓' : '';
+}
+
+function done(id){
+  if(completed.has(id)) return;
+  completed.add(id);
+  const btn = document.getElementById('complete-'+id);
+  btn.classList.add('done');
+  btn.querySelector('span').textContent = '✓ Abgeschlossen';
+  const dot = document.querySelector(`.ni[data-page="${id}"] .nd`);
+  if(dot) dot.parentElement.classList.add('done');
+  const sd = document.getElementById('status-'+id);
+  if(sd) sd.className = 'md sd';
+  const n = completed.size;
+  document.getElementById('globalProgress').style.width = Math.round(n/TOTAL*100)+'%';
+  document.getElementById('globalProgressText').textContent = n+' von '+TOTAL+' abgeschlossen';
+  document.getElementById('doneCount').textContent = n;
+  showToast('Einheit als abgeschlossen markiert');
+}
+
+function cp(id){
+  const el = document.getElementById(id);
+  if(!el) return;
+  navigator.clipboard.writeText(el.innerText||el.textContent)
+    .then(() => showToast('Vorlage in Zwischenablage kopiert'))
+    .catch(() => showToast('Manuell kopieren: Text markieren & Strg+C'));
+}
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2600);
+}
+</script>
+</body>
+</html>
